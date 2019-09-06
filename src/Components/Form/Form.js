@@ -1,6 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
-
+import {Link} from 'react-router-dom';
 class Form extends React.Component{
     constructor(){
         super();
@@ -41,13 +41,13 @@ class Form extends React.Component{
             price: this.state.price
         })
         .then(() => {
-            this.props.getItems();
+            
             this.resetState();
         })
     }
     render(){
         return(
-            <div>
+            <div className='form_div'>
                 <main>
                     <section>
                         <p className='form_p'>Image URL:</p>
@@ -65,7 +65,9 @@ class Form extends React.Component{
                 </main>
                 <footer>
                     <button onClick={this.resetState}>Cancel</button>
+                    <Link to ='/'>
                     <button onClick={this.createProduct}>Add to Inventory</button>
+                    </Link>
                 </footer>
 
             </div>

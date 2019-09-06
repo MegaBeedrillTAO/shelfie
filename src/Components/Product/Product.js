@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom';
 function Product(props) {
         const {id, url, name, price} = props;
         return(
@@ -12,7 +12,7 @@ function Product(props) {
                 </main>
                 <section className = 'prod_section'>
                     <button onClick={() => props.deleteItem(id)}>Delete</button>
-                    <button>Edit</button>
+                    <Link to = {`edit/${id}`}><button>Edit</button></Link>
                 </section>
                 
             </div>

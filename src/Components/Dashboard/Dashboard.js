@@ -37,7 +37,7 @@ class Dashboard extends React.Component{
             key = {e.product_id}
             price = {e.price}
             name= {e.name}
-            url = {e.url}
+            url = {e.image_url}
             id = {e.product_id}
             deleteItem = {this.deleteItem}
             
@@ -45,7 +45,10 @@ class Dashboard extends React.Component{
         ))
         return(
             <div className='dash_div'>
-                {product}
+                <main className='dash_main'>
+                    {product}   
+                </main>
+                
             </div>
         )
     }

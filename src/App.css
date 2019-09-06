@@ -6,6 +6,10 @@
   position: fixed;
   background-color: #ab2a19;
   top: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .dash_div{
@@ -15,7 +19,7 @@
   align-items: center;
   height: 100vh;
   width: 100vw;
-  overflow-y: auto;
+  
   
 }
 
@@ -41,6 +45,23 @@ img {
   height: 150px;
 }
 
+.form_div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+.dash_main{
+  overflow-y: auto;
+  height: 80vh;
+  
+}
 
-
+.header_button{
+  border: solid 2px black;
+  height:40px;
+  width: 80px;
+}
 

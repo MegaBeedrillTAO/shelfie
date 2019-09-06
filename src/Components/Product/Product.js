@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Product (props) {
-        const {key, url, name, price} = props;
+function Product(props) {
+        const {id, url, name, price} = props;
         return(
 
             <div className='product'>
@@ -11,7 +11,7 @@ function Product (props) {
                     <p>${price}</p>
                 </main>
                 <section className = 'prod_section'>
-                    <button onClick={props.deleteItem}>Delete</button>
+                    <button onClick={() => props.deleteItem(id)}>Delete</button>
                     <button>Edit</button>
                 </section>
                 

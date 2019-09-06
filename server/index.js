@@ -15,7 +15,8 @@ app.use(express.json());
 
 app.get('/api/inventory', controller.getProducts)
 app.post('/api/inventory', controller.createProduct)
-app.delete('/api/inventory/id', controller.deleteProduct)
+app.put('api/inventory:id', controller.editItem)
+app.delete('/api/inventory/:id', controller.deleteProduct)
 
 app.listen(PORT_CONNECTION, () => {
     console.log(`Listening on port ${PORT_CONNECTION}`)

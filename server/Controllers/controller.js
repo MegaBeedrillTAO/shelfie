@@ -24,16 +24,22 @@ function deleteProduct(req,res){
     const dbInst = req.app.get('db');
     const { id } = req.params;
     dbInst.deleteItem(id)
-    .then( () => res.sendStatus(200) )
+    .then( (products) => res.status(200).send(products) )
       .catch( err => {
         res.status(500).send({errorMessage: "Oops! Something went wrong. Our engineers have been informed!"});
         console.log(err)
       } );
 }
 
+function editItem(req, res){
+  const dbInst = req.app.get('db');
+  const { id } = req.params;
+}
+
 
 module.exports ={
     getProducts,
     createProduct,
-    deleteProduct
+    deleteProduct,
+    editItem
 }

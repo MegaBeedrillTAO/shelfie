@@ -40,8 +40,8 @@ class Form extends React.Component{
             name: this.state.name,
             price: this.state.price
         })
-        .then(response => {
-            this.props.updateState(response.data);
+        .then(() => {
+            this.props.getItems();
             this.resetState();
         })
     }

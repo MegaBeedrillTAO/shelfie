@@ -1,19 +1,23 @@
 import React from 'react';
 
-class Product extends React.Component{
-
-    render(){
+function Product (props) {
+        const {key, url, name, price} = props;
         return(
+
             <div className='product'>
-                <img src={this.props.url} alt="text"/>
+                <img src={url} alt="text"/>
                 <main className='prod_main'>
-                    <p>{this.props.name}</p>
-                    <p>${this.props.price}</p>
+                    <p>{name}</p>
+                    <p>${price}</p>
                 </main>
+                <section className = 'prod_section'>
+                    <button onClick={props.deleteItem}>Delete</button>
+                    <button>Edit</button>
+                </section>
                 
             </div>
         )
-    }
+    
 
 }
 

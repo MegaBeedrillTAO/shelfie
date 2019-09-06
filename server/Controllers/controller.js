@@ -20,7 +20,20 @@ function createProduct(req, res){
       } );
 }
 
+function deleteProduct(req,res){
+    const dbInst = req.app.get('db');
+    const { id } = req.params;
+    dbInst.deleteItem(id)
+    .then( () => res.sendStatus(200) )
+      .catch( err => {
+        res.status(500).send({errorMessage: "Oops! Something went wrong. Our engineers have been informed!"});
+        console.log(err)
+      } );
+}
+
 
 module.exports ={
-    getProducts
+    getProducts,
+    createProduct,
+    deleteProduct
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import Axios from 'axios';
 
 class Form extends React.Component{
     constructor(){
@@ -29,9 +30,21 @@ class Form extends React.Component{
             name: '',
             price: 0
         })
+        
        
     }
-
+    
+    createProduct = () => {
+        Axios.post('/api/inventory', {
+            image_url: this.state.url,
+            name: this.state.name,
+            price: this.state.price
+        })
+        .then(response => {
+            this.props.updateState(response.data);
+            this.resetState();
+        })
+    }
     render(){
         return(
             <div>
@@ -52,7 +65,7 @@ class Form extends React.Component{
                 </main>
                 <footer>
                     <button onClick={this.resetState}>Cancel</button>
-                    <button>Add to Inventory</button>
+                    <button onClick={this.createProduct}>Add to Inventory</button>
                 </footer>
 
             </div>

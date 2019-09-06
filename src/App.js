@@ -12,24 +12,30 @@ class App extends React.Component {
       products: []
     }
   }
+  updateState = value =>{
+    this.setState({products: value})
+  }
 
-
-  getItems(){
+  componentDidMount(){
     Axios
   .get('/api/inventory')
   .then(response => {
-    this.setState({products: response.data})
+    this.updateState(response.data);
   })
   .catch(err => console.log(err))
   }
 
+  getItems = () =>{
+   
+  }
+
   render(){ 
-    this.getItems();
+    
     return (
       <div className="App">
         <Header/>
-        <Dashboard products = {this.state.products}/>
-        <Form getItems={this.getItems}/>
+        <Dashboard products = {this.state.products} updateState={this.updateState}/>
+        <Form updateState={this.updateState}/>
       </div>
     );
   }

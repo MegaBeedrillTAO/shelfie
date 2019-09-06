@@ -17,7 +17,7 @@ class Dashboard extends React.Component{
             />
         ))
         return(
-            <div>
+            <div className='dash_div'>
                 {product}
             </div>
         )

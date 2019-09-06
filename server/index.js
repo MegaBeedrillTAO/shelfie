@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const massive = require('massive');
 const {PORT_CONNECTION, CONNECTION_STRING} = process.env;
+const controller = require('./Controllers/controller');
 
 massive(CONNECTION_STRING)
 .then(dbInst => {
@@ -12,7 +13,8 @@ massive(CONNECTION_STRING)
 
 app.use(express.json());
 
-
+app.get('/api/inventory', controller.getProducts)
+app.post('/api/inventory')
 
 app.listen(PORT_CONNECTION, () => {
     console.log(`Listening on port ${PORT_CONNECTION}`)
